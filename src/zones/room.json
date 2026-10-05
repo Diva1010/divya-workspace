@@ -1,0 +1,536 @@
+{
+  "id": "room",
+  "origin": [0, 0, 0],
+  "lighting": "dusk",
+  "bounds": {
+    "halfWidth": 4,
+    "height": 4.4,
+    "thickness": 0.45,
+    "frontPostZ": 4.24
+  },
+  "window": {
+    "cx": -1.3,
+    "cy": 2.85,
+    "w": 2.6,
+    "h": 2
+  },
+  "camera": {
+    "home": {
+      "position": [12.5, 9.6, 14.8],
+      "target": [0, 1.9, 0.1],
+      "fov": 32
+    },
+    "orbit": {
+      "minDistance": 1.5,
+      "maxDistance": 34,
+      "minPolar": 0.15,
+      "maxPolarPi": 0.49,
+      "damping": 0.08,
+      "rotateSpeed": 0.7,
+      "zoomSpeed": 0.8
+    },
+    "glideSeconds": 1,
+    "backSeconds": 0.9,
+    "focusDistance": 3.7
+  },
+  "poses": {
+    "screen-left": {
+      "target": [0.314, 1.689, -3.504],
+      "dir": [0.1366, 0.1736, 0.9752],
+      "distance": 1.6,
+      "screen": {
+        "width": 0.978,
+        "fallbackPose": "monitors",
+        "minPx": 600
+      }
+    },
+    "laptop-screen": {
+      "target": [2.6, 1.548, -3.447],
+      "dir": [0, 0.2588, 0.9659],
+      "distance": 1.5,
+      "screen": {
+        "width": 0.8,
+        "fallbackPose": "laptop",
+        "minPx": 600
+      }
+    },
+    "whiteboard-screen": {
+      "target": [3.93, 1.95, -0.3],
+      "dir": [-1, 0.09, 0],
+      "distance": 3,
+      "screen": {
+        "width": 1.84,
+        "fallbackPose": "whiteboard",
+        "minPx": 600
+      }
+    },
+    "whiteboard": {
+      "target": [3.93, 1.95, -0.3],
+      "dir": [-1, 0.09, 0],
+      "distance": 6.2,
+      "fitWidth": 2,
+      "tallDistance": 4.4,
+      "shift": {
+        "wide": [-0.26, 0],
+        "tall": [0, 0.2]
+      },
+      "sideCard": true
+    },
+    "education": {
+      "target": [3.93, 1.79, 2.07],
+      "dir": [-1, 0.09, 0],
+      "distance": 2.25,
+      "fitWidth": 1.85,
+      "wallView": true,
+      "focusLight": false
+    },
+    "monitors": {
+      "target": [0.87, 1.75, -3.55],
+      "dir": [0, 0.18, 1],
+      "distance": 3.4,
+      "fitWidth": 2.4
+    },
+    "laptop": {
+      "target": [2.6, 1.5, -3.1],
+      "dir": [0.12, 0.17, 1],
+      "distance": 3.2,
+      "fitWidth": 0.9
+    },
+    "phone-screen": {
+      "target": [0.07, 1.359, -2.3888],
+      "dir": [0, 0.2571, 0.9664],
+      "distance": 0.84,
+      "screen": {
+        "width": 0.1248,
+        "minPx": 161
+      }
+    },
+    "resume-paper": {
+      "target": [-0.58, 1.401, -2.559],
+      "dir": [0, 0.1395, 0.99],
+      "distance": 1.5,
+      "fitWidth": 0.375,
+      "shift": {
+        "wide": [-0.3, 0],
+        "tall": [0, 0.36]
+      },
+      "sideCard": true
+    },
+    "experience": {
+      "target": [1.06, 2.95, -3.985],
+      "dir": [0, 0.06, 1],
+      "distance": 3.2,
+      "fitWidth": 1.95
+    },
+    "photo-frame": {
+      "target": [2.6854, 3.205, -3.97],
+      "dir": [-0.5, 0.12, 0.86],
+      "distance": 2.7,
+      "fitWidth": 0.46,
+      "tallDistance": 3,
+      "shift": {
+        "wide": [-0.31, 0],
+        "tall": [0, 0.36]
+      },
+      "sideCard": true
+    },
+    "reading-shelf": {
+      "target": [-3.55, 1.35, -2.66],
+      "dir": [0.5, 0.15, 0.87],
+      "distance": 7,
+      "fitWidth": 2.4,
+      "focusLight": false
+    },
+    "current-read": {
+      "target": [-2.663, 0.62, -1.498],
+      "dir": [0.996, 0.25, 0.087],
+      "distance": 1.15,
+      "fitWidth": 0.5
+    },
+    "travel-diary": {
+      "target": [-2.62, 0.78, -2.65],
+      "dir": [0.985, 0.25, 0.174],
+      "distance": 1.4,
+      "fitWidth": 0.45
+    }
+  },
+  "monitorScreen": {
+    "halfWidth": 0.654,
+    "bottom": {
+      "y": 0.287,
+      "z": 0.195
+    },
+    "top": {
+      "y": 1.023,
+      "z": 0.065
+    }
+  },
+  "screens": [
+    {"id": "projects-left", "prop": "monitor-left", "kind": "projects", "pose": "screen-left"},
+    {"id": "editor-right", "prop": "monitor-right", "kind": "editor"},
+    {"id": "skills-laptop", "prop": "laptop", "kind": "skills", "pose": "laptop-screen"},
+    {"id": "contact-phone", "prop": "phone", "kind": "contact", "pose": "phone-screen"},
+    {"id": "now-board", "prop": "whiteboard", "kind": "now", "pose": "whiteboard-screen"}
+  ],
+  "propScale": 1.15,
+  "props": [
+    {
+      "id": "monitor-left",
+      "model": "monitor",
+      "position": [0.3, 1.2, -3.6],
+      "rotationY": 0.14,
+      "scale": 0.65,
+      "shadow": true,
+      "hotspot": {
+        "contentKey": "projects",
+        "pose": "screen-left",
+        "glow": {
+          "kind": "wall",
+          "wall": "back",
+          "position": [0.87, 1.61, -3.99],
+          "size": [2.26, 0.82]
+        }
+      }
+    },
+    {
+      "id": "monitor-right",
+      "model": "monitor",
+      "position": [1.44, 1.2, -3.6],
+      "rotationY": -0.14,
+      "scale": 0.65,
+      "shadow": true,
+      "hotspot": {
+        "contentKey": "projects",
+        "pose": "screen-left"
+      }
+    },
+    {"id": "keyboard", "model": "keyboard", "position": [0.87,1.2,-2.75], "rotationY": 0, "scale": 1, "scaleXYZ": [1,0.4,1], "shadow": true},
+    {"id": "mouse", "model": "mouse", "position": [1.6,1.2,-2.75], "rotationY": 0, "scale": 1.35, "scaleXYZ": [1,0.5,1], "shadow": true},
+    {"id": "chair", "model": "chair_desk_A", "position": [1.2,0.05,-1.75], "rotationY": 3.14159, "scale": 1, "shadow": true},
+    {
+      "id": "photo-frame",
+      "model": "pictureframe_medium",
+      "position": [2.6854, 3.205, -3.985],
+      "rotationY": 0,
+      "scale": 1,
+      "shadow": true,
+      "wall": "back",
+      "hotspot": {
+        "contentKey": "about",
+        "pose": "photo-frame",
+        "glow": {
+          "kind": "wall",
+          "wall": "back",
+          "rotationY": 0,
+          "position": [2.6854, 3.205, -3.995],
+          "size": [0.46, 0.59]
+        }
+      },
+      "decal": {
+        "size": 0.28,
+        "position": [0, 0, 0.005],
+        "tone": "dark",
+        "photo": [0.39, 0.52]
+      },
+      "note": "N1: the About frame is code-built on the back wall above the neon name (src/scene/AboutFrame.tsx, aboutLayout.ts); the model is not drawn"
+    },
+    {
+      "id": "book",
+      "model": "book_single",
+      "position": [-2.663, 0.5543, -1.498],
+      "rotationY": -0.262,
+      "rotation": [0, 0, 1.5708],
+      "scale": 0.36,
+      "shadow": true,
+      "palette": {
+        "r3c0": "#F6E3A8",
+        "r2c0": "#F6E3A8",
+        "r0c7": "#F6EBDD",
+        "r1c7": "#F6EBDD"
+      },
+      "hotspot": {
+        "contentKey": "currentRead",
+        "pose": "current-read"
+      }
+    },
+    {
+      "id": "floor-lamp",
+      "model": "lamp_standing",
+      "position": [-3.62, 0.05, -1.1],
+      "rotationY": 0,
+      "scale": 0.58661,
+      "shadow": true,
+      "interaction": "floorLamp",
+      "lamp": {
+        "head": [0, 2.15, 0],
+        "hit": [
+          [0,2.15,0,0.47]
+        ],
+        "hitBoxes": [
+          [0,0.95,0,0.4,1.9,0.4]
+        ],
+        "ring": 0.3
+      },
+      "note": "M2: 1.70 m tall (pack height 2.52), clickable on/off, no camera move; the shade (lamp_head) glows from the atlas like the desk lamp"
+    },
+    {
+      "id": "pen-cup",
+      "model": "cup_pencils",
+      "position": [-0.205, 1.2, -3.25],
+      "rotationY": 0.6,
+      "scale": 0.326,
+      "shadow": true,
+      "palette": {
+        "r3c1": "#CDB8E8",
+        "r2c1": "#CDB8E8",
+        "r3c3": "#E4D6F2",
+        "r2c3": "#E4D6F2",
+        "r3c2": "#BFE3D0",
+        "r2c2": "#BFE3D0",
+        "r3c0": "#F0C4D4",
+        "r2c0": "#F0C4D4",
+        "r4c4": "#F6E3A8"
+      },
+      "note": "N1: on the desk between the lamp and the left monitor, 0.09 m wide (it was on the left wall's pegboard plank)"
+    },
+    {
+      "id": "lamp",
+      "model": "lamp_desk",
+      "position": [-0.58, 1.2, -3.5],
+      "rotationY": 0,
+      "scale": 0.612,
+      "shadow": true,
+      "interaction": "lamp",
+      "lamp": {
+        "head": [0, 0.945, 0.56],
+        "hit": [
+          [0,0.15,0,0.25],
+          [0,0.65,0.15,0.16],
+          [0,0.95,0.55,0.27]
+        ],
+        "ring": 0.306
+      }
+    }
+  ],
+  "codeProps": [
+    {
+      "id": "laptop",
+      "kind": "laptop",
+      "position": [2.6, 1.2, -3.1],
+      "rotationY": 0,
+      "size": [0.9, 0.6, 0.05],
+      "lidAngle": 105,
+      "hotspot": {
+        "contentKey": "skills",
+        "pose": "laptop-screen"
+      }
+    },
+    {
+      "id": "phone",
+      "kind": "phone",
+      "position": [0.07, 1.2, -2.4],
+      "rotationY": 0,
+      "tilt": 0.26,
+      "scale": 0.48,
+      "size": [0.3, 0.6, 0.04],
+      "hotspot": {
+        "contentKey": "contact",
+        "pose": "phone-screen"
+      }
+    },
+    {
+      "id": "resume-paper",
+      "kind": "standee",
+      "position": [-0.58, 1.2, -2.55],
+      "rotationY": 0,
+      "scale": 0.75,
+      "size": [0.46, 0.14, 0.64],
+      "hotspot": {
+        "contentKey": "resume",
+        "pose": "resume-paper"
+      }
+    }
+  ],
+  "shelves": {
+    "wall": "right",
+    "back": 0.01,
+    "boards": [
+      {"id": "S1", "x": -2.95, "length": 1.8, "depth": 0.25, "top": 3.2, "brackets": 3},
+      {"id": "S2", "x": -3.1, "length": 1.5, "depth": 0.28, "top": 2.35, "brackets": 3},
+      {"id": "S3", "x": -3.05, "length": 1.6, "depth": 0.26, "top": 1.45, "brackets": 3}
+    ]
+  },
+  "plants": [
+    {"id": "case-a-mid", "model": "succulents/aroe", "group": "left", "position": [-3.535,1.234,-3.292], "rotationY": 3.2916, "size": 0.224, "note": "bookcase A, middle slot; vines over the front edge"},
+    {"id": "case-a-top-slot", "model": "succulents/jyuzuhoshi", "group": "left", "position": [-3.532,2.289,-3.407], "rotationY": 3.0616, "size": 0.256, "note": "bookcase A, top slot"},
+    {"id": "case-b-mid", "model": "succulents/uni", "group": "left", "position": [-3.525,1.234,-2.031], "rotationY": 3.4416, "size": 0.192, "note": "bookcase B, middle slot"},
+    {"id": "case-b-top-slot", "model": "succulents/kumadouji", "group": "left", "position": [-3.535,2.289,-2.409], "rotationY": 3.0416, "size": 0.24, "note": "bookcase B, top slot"},
+    {"id": "case-a-top", "model": "succulents/gurauka", "group": "left", "position": [-3.565,2.65,-3.15], "rotationY": 3.1416, "size": 0.32, "note": "on top of bookcase A (pothos_plant_medium_potted was tried: its vines hang all round and would pass through the top board)"},
+    {"id": "cases-top-mid", "model": "succulents/momiji", "group": "left", "position": [-3.66,2.65,-2.66], "rotationY": 0.5, "size": 0.304, "note": "on top, over the join of the two cases"},
+    {"id": "case-b-top", "model": "succulents/aroe", "group": "left", "position": [-3.555,2.65,-1.95], "rotationY": 3.2416, "size": 0.288, "note": "on top of bookcase B"},
+    {"id": "bc-a2-sansevieria", "model": "succulents/jyuzuhoshi", "group": "left", "position": [-3.545,0.8834,-3.15], "rotationY": 1.2, "size": 0.192, "rest": [-3.848,0.8529,-3.83,-3.46,0.8829,-2.69], "note": "L2 bookcase A, level 2"},
+    {"id": "bc-a3-cactus", "model": "succulents/uni", "group": "left", "position": [-3.555,1.2348,-3.65], "rotationY": 0.8, "size": 0.24, "rest": [-3.848,1.2043,-3.83,-3.46,1.2343,-2.69], "note": "L2 bookcase A, level 3, beside the existing pothos"},
+    {"id": "bc-a5-cactus", "model": "succulents/kumadouji", "group": "left", "position": [-3.555,1.9376,-3.15], "rotationY": 0.4, "size": 0.224, "rest": [-3.848,1.9071,-3.83,-3.46,1.9371,-2.69], "note": "L2 bookcase A, level 5"},
+    {"id": "bc-b2-sansevieria", "model": "succulents/gurauka", "group": "left", "position": [-3.545,0.8834,-1.8], "rotationY": 1.9, "size": 0.192, "rest": [-3.848,0.8529,-2.6300000000000003,-3.46,0.8829,-1.49], "note": "L2 bookcase B, level 2"},
+    {"id": "bc-b3-cactus", "model": "succulents/momiji", "group": "left", "position": [-3.555,1.2348,-2.55], "rotationY": 2.4, "size": 0.224, "rest": [-3.848,1.2043,-2.6300000000000003,-3.46,1.2343,-1.49], "note": "L2 bookcase B, level 3, beside the existing pothos"},
+    {"id": "bc-b5-sansevieria", "model": "succulents/aroe", "group": "left", "position": [-3.545,1.9376,-1.75], "rotationY": 3.9, "size": 0.192, "rest": [-3.848,1.9071,-2.6300000000000003,-3.46,1.9371,-1.49], "note": "L2 bookcase B, level 5"},
+    {"id": "bc-b6-cactus", "model": "succulents/jyuzuhoshi", "group": "left", "position": [-3.555,2.2891,-1.78], "rotationY": 5.2, "size": 0.208, "rest": [-3.848,2.2586,-2.6300000000000003,-3.46,2.2886,-1.49], "note": "L2 bookcase B, level 6, beside the existing top-slot pothos"},
+    {"id": "bp-tr-zz", "model": "succulents/uni", "group": "left", "position": [-3.91,3.0617,2.177], "rotationY": 2.0708, "size": 0.144, "rest": [-3.96,3.0417,1.9274,-3.86,3.0617,2.2474], "note": "N1 pegboard (N17: now on the left wall), top-right shelf"},
+    {"id": "bp-tr-pothos", "model": "succulents/kumadouji", "group": "left", "position": [-3.91,3.0617,1.997], "rotationY": 3.1416, "size": 0.16, "rest": [-3.96,3.0417,1.9274,-3.86,3.0617,2.2474], "note": "N1 pegboard (N17: now on the left wall), top-right shelf"},
+    {"id": "bp-l-pothos", "model": "succulents/gurauka", "group": "left", "position": [-3.898,2.815,2.95], "rotationY": 3.1416, "size": 0.192, "rest": [-3.96,2.795,2.78,-3.86,2.815,3.23], "note": "N1 pegboard (N17: now on the left wall), left shelf: the trailing pothos at its left end"},
+    {"id": "bp-c-sansevieria", "model": "succulents/momiji", "group": "left", "position": [-3.91,2.794,2.394], "rotationY": 1.9708, "size": 0.16, "rest": [-3.96,2.774,2.3236,-3.86,2.794,2.5936], "note": "N1 pegboard (N17: now on the left wall), middle shelf"},
+    {"id": "bp-lr-cactus", "model": "succulents/aroe", "group": "left", "position": [-3.91,2.4685,1.994], "rotationY": 2.6708, "size": 0.16, "rest": [-3.96,2.4485,1.8843,-3.86,2.4685,2.1043], "note": "N1 pegboard (N17: now on the left wall), lower-right shelf"},
+    {"id": "s1-zz", "model": "succulents/jyuzuhoshi", "group": "right", "position": [3.86,3.2,-3.12], "rotationY": 0.6, "size": 0.192, "rest": [3.74,3.16,-3.85,3.99,3.2,-2.05], "note": "N2 S1, middle"},
+    {"id": "s1-pothos", "model": "succulents/uni", "group": "right", "position": [3.85,3.2,-2.45], "rotationY": 0, "size": 0.192, "rest": [3.74,3.16,-3.85,3.99,3.2,-2.05], "note": "N2 S1, middle; its vines drape over the front edge"},
+    {"id": "s2-sansevieria", "model": "succulents/kumadouji", "group": "right", "position": [3.845,2.451,-2.93], "rotationY": 0.4, "size": 0.176, "note": "N2 S2, on the stack of 3 (y = shelf top + stack height 0.101, rightWall.ts PLAN)"},
+    {"id": "s2-pothos", "model": "succulents/gurauka", "group": "right", "position": [3.84,2.35,-2.62], "rotationY": 0, "size": 0.176, "rest": [3.71,2.31,-3.85,3.99,2.35,-2.35], "note": "N2 S2, front end"},
+    {"id": "s3-zz", "model": "succulents/momiji", "group": "right", "position": [3.86,1.45,-3.73], "rotationY": 2, "size": 0.16, "rest": [3.73,1.41,-3.85,3.99,1.45,-2.25], "note": "N2 S3, back end"},
+    {"id": "s3-cactus", "model": "succulents/aroe", "group": "right", "position": [3.86,1.543,-2.88], "rotationY": 1, "size": 0.144, "note": "N2 S3, on the stack of 3 (y = shelf top + stack height 0.092, rightWall.ts PLAN)"},
+    {"id": "stool-cactus", "model": "succulents/gurauka", "group": "floor", "position": [-2.65,0.5,-1.72], "rotationY": 0.4, "size": 0.13, "note": "N9 side table: the small plant at the back of the top"},
+    {"id": "desk-plant", "model": "succulents/uni", "group": "floor", "position": [3.155,1.2,-3.6], "rotationY": 0.7, "size": 0.22, "note": "N1: desk end, in the free strip right of the laptop (back half)"},
+    {"id": "z1-cactus", "model": "succulents/aroe", "group": "floor", "position": [-1.75,0.05,-3], "rotationY": 2.1, "size": 0.34, "note": "N3 Z1, beside the bean bag: 0.29 m from its edge, 0.76 m from the desk"},
+    {"id": "z2-zz", "model": "plant_trailing_box", "group": "floor", "position": [3.72,0.05,-1.85], "rotationY": 0, "size": 0.9, "note": "N8: moved from behind the desk end to the spot of the removed jasmine (z2-yucca), so the stand and its trailing pothos show at the home view"},
+    {"id": "z2-pothos", "model": "succulents/kumadouji", "group": "floor", "position": [3.72,0.05,-2.7], "rotationY": 0.4, "size": 0.3, "rest": [3.3,-0.3,-3.1,3.99,0.05,-2.3], "note": "N3 Z2: the vines lie on the floor (pressed onto it by `rest`)"},
+    {"id": "z3-sansevieria", "model": "plant_jasmine", "group": "floor", "position": [3.42,0.05,0.05], "rotationY": 2.6, "size": 0.9, "note": "N3 Z3, under the whiteboard (0.67 m tall; the tray is at y 1.25)"},
+    {"id": "floor-f1-sansevieria", "model": "plant_jasmine", "group": "floor", "position": [-3.62,0.05,-0.55], "rotationY": 0.6, "size": 0.7, "note": "L2 F1: beside the end of bookcase B"},
+    {"id": "floor-f2-zzplant", "model": "plant_broad", "group": "floor", "position": [-3.3,0.05,0.18], "rotationY": 2, "size": 0.8, "note": "L2 F2: under the single shelf"},
+    {"id": "floor-f2-cactus", "model": "succulents/jyuzuhoshi", "group": "floor", "position": [-3.62,0.05,1], "rotationY": 1.1, "size": 0.34, "note": "L2 F2: under the single shelf"},
+    {"id": "floor-f3-monstera", "model": "plant_monstera", "group": "floor", "position": [-3.4,0.05,2.45], "rotationY": 0.3, "size": 1.4, "note": "L2 F3: front-left corner, stretched 1.43x so a 0.47 m pot reaches about 1.6 m"},
+    {"id": "floor-right-monstera", "model": "plant_bird", "group": "floor", "position": [3.47,0.05,3.55], "rotationY": 0.3, "size": 1.65, "note": "N5f: the big monstera in the far (front) corner of the right wall, right of the Wall of Degrees (panel ends at z 3.095, hit area at 3.135; the Education view ends near z 3.25): a clone of the left one, a little larger, same model and material"},
+    {"id": "floor-f3-sansevieria", "model": "plant_jasmine", "group": "floor", "position": [-3.55,0.05,3.15], "rotationY": 2.4, "size": 0.9, "note": "L2 F3: beside the monstera"},
+    {"id": "back-hanging-planter", "model": "planter_hang", "group": "back", "position": [-3.1,2.85,-3.995], "rotationY": 0, "size": 0.93, "note": "N7: hanging planter on its own wall bracket (plate, arm, hook), left of the window (x -2.6): needs no shelf or roof; hook at y 2.85, planter bottom 1.92"},
+    {"id": "bp-l-ivy-pot", "model": "ivy/pot_butter", "group": "left", "position": [-3.89,2.815,3.18], "rotationY": 1.5708, "size": 0.09, "note": "N8 pegboard left plank: the pot the ivy cascade grows from (strands hang past the plank end at x 0.3)"},
+    {"id": "bp-l-ivy-1", "model": "ivy/ivy_3", "group": "left", "position": [-3.885,2.905,3.23], "rotationY": 0.0998, "size": 0.46, "note": "bp-l-ivy strand, rooted on the pot rim"},
+    {"id": "bp-l-ivy-2", "model": "ivy/ivy_2", "group": "left", "position": [-3.875,2.905,3.228], "rotationY": 0.2998, "size": 0.38, "note": "bp-l-ivy strand, rooted on the pot rim"},
+    {"id": "bp-l-ivy-3", "model": "ivy/ivy_1", "group": "left", "position": [-3.866,2.905,3.224], "rotationY": 0.4998, "size": 0.3, "note": "bp-l-ivy strand, rooted on the pot rim"},
+    {"id": "bp-l-ivy-4", "model": "ivy/ivy_4", "group": "left", "position": [-3.86,2.905,3.22], "rotationY": 0.6498, "size": 0.55, "note": "bp-l-ivy strand, rooted on the pot rim"},
+    {"id": "bp-l-ivy-5", "model": "ivy/ivy_2", "group": "left", "position": [-3.854,2.905,3.215], "rotationY": 0.7998, "size": 0.38, "note": "bp-l-ivy strand, rooted on the pot rim"},
+    {"id": "bp-l-ivy-6", "model": "ivy/ivy_3", "group": "left", "position": [-3.849,2.905,3.209], "rotationY": 0.9498, "size": 0.46, "note": "bp-l-ivy strand, rooted on the pot rim"},
+    {"id": "s1-ivy-pot", "model": "ivy/pot_blush", "group": "right", "position": [3.9,3.2,-2.095], "rotationY": 0, "size": 0.09, "note": "N8 S1 front end: the pot the ivy cascade grows from (strands hang past the end of the board, z -2.05, close to the wall)"},
+    {"id": "s1-ivy-1", "model": "ivy/ivy_8", "group": "right", "position": [3.868,3.29,-2.057], "rotationY": -0.7, "size": 0.9, "note": "s1-ivy strand, rooted on the pot rim"},
+    {"id": "s1-ivy-2", "model": "ivy/ivy_6", "group": "right", "position": [3.878,3.29,-2.05], "rotationY": -0.45, "size": 0.7, "note": "s1-ivy strand, rooted on the pot rim"},
+    {"id": "s1-ivy-3", "model": "ivy/ivy_7", "group": "right", "position": [3.89,3.29,-2.046], "rotationY": -0.2, "size": 0.8, "note": "s1-ivy strand, rooted on the pot rim"},
+    {"id": "s1-ivy-4", "model": "ivy/ivy_4", "group": "right", "position": [3.902,3.29,-2.045], "rotationY": 0.05, "size": 0.55, "note": "s1-ivy strand, rooted on the pot rim"},
+    {"id": "s1-ivy-5", "model": "ivy/ivy_5", "group": "right", "position": [3.912,3.29,-2.047], "rotationY": 0.25, "size": 0.62, "note": "s1-ivy strand, rooted on the pot rim"},
+    {"id": "s1-ivy-6", "model": "ivy/ivy_3", "group": "right", "position": [3.92,3.29,-2.049], "rotationY": 0.42, "size": 0.46, "note": "s1-ivy strand, rooted on the pot rim"},
+    {"id": "s2-ivy-pot", "model": "ivy/pot_mint", "group": "right", "position": [3.9,2.35,-2.395], "rotationY": 0, "size": 0.09, "note": "N8 S2 front end: the pot the ivy cascade grows from (strands hang past the end of the board, z -2.35)"},
+    {"id": "s2-ivy-1", "model": "ivy/ivy_3", "group": "right", "position": [3.872,2.44,-2.354], "rotationY": -0.6, "size": 0.46, "note": "s2-ivy strand, rooted on the pot rim"},
+    {"id": "s2-ivy-2", "model": "ivy/ivy_2", "group": "right", "position": [3.885,2.44,-2.347], "rotationY": -0.3, "size": 0.38, "note": "s2-ivy strand, rooted on the pot rim"},
+    {"id": "s2-ivy-3", "model": "ivy/ivy_4", "group": "right", "position": [3.898,2.44,-2.345], "rotationY": -0.05, "size": 0.55, "note": "s2-ivy strand, rooted on the pot rim"},
+    {"id": "s2-ivy-4", "model": "ivy/ivy_1", "group": "right", "position": [3.91,2.44,-2.346], "rotationY": 0.2, "size": 0.3, "note": "s2-ivy strand, rooted on the pot rim"},
+    {"id": "s2-ivy-5", "model": "ivy/ivy_3", "group": "right", "position": [3.919,2.44,-2.349], "rotationY": 0.4, "size": 0.46, "note": "s2-ivy strand, rooted on the pot rim"},
+    {"id": "s1-pearls", "model": "ivy/pearls_a", "group": "right", "position": [3.79,3.2,-2.8], "rotationY": -1.571, "size": 0.09, "note": "N8 S1: string of pearls over the front edge of the board (x 3.74)"},
+    {"id": "left-shelf-jasmine", "model": "plant_jasmine", "group": "left", "position": [-3.7,2.015,1.5], "rotationY": 0.6, "size": 0.28, "recolor": {"#D98B6A": "#CDB8E8"}, "note": "N8 left shelf: a small jasmine in a lavender pot, 0.33 m from the Modern Family poster; replaces the pearls and the ivy that stood here"},
+    {"id": "z1-bird", "model": "plant_bird", "group": "floor", "position": [-1.55,0.05,-3.55], "rotationY": 0, "size": 1.45, "recolor": {"#BFE3D0": "#F0C4D4"}, "note": "N8 under the window beside the desk: a second bird of paradise in a blush pot (replaces the jasmine z1-sansevieria)"},
+    {"id": "bk-w-pot", "model": "ivy/pot_blush", "group": "left", "position": [-3.515,1.586,-3.76], "rotationY": 0, "size": 0.09, "note": "N9 bookcase, window side (case A, level 5 front, by the back wall): the pot the ivy grows from; the strands drape over the shelf front"},
+    {"id": "bk-w-1", "model": "ivy/ivy_4", "group": "left", "position": [-3.469,1.676,-3.741], "rotationY": 1.171, "size": 0.55, "note": "bk-w strand, rooted on the pot rim"},
+    {"id": "bk-w-2", "model": "ivy/ivy_7", "group": "left", "position": [-3.465,1.676,-3.755], "rotationY": 1.471, "size": 0.8, "note": "bk-w strand, rooted on the pot rim"},
+    {"id": "bk-w-3", "model": "ivy/ivy_5", "group": "left", "position": [-3.466,1.676,-3.77], "rotationY": 1.771, "size": 0.62, "note": "bk-w strand, rooted on the pot rim"},
+    {"id": "bk-w-4", "model": "ivy/ivy_8", "group": "left", "position": [-3.47,1.676,-3.782], "rotationY": 2.021, "size": 0.9, "note": "bk-w strand, rooted on the pot rim"},
+    {"id": "bk-m-pot", "model": "ivy/pot_butter", "group": "left", "position": [-3.515,2.289,-2.76], "rotationY": 0, "size": 0.09, "note": "N9 bookcase, middle (the join of the two cases, top shelf front): the pot the ivy grows from"},
+    {"id": "bk-m-1", "model": "ivy/ivy_3", "group": "left", "position": [-3.468,2.379,-2.743], "rotationY": 1.221, "size": 0.46, "note": "bk-m strand, rooted on the pot rim"},
+    {"id": "bk-m-2", "model": "ivy/ivy_6", "group": "left", "position": [-3.465,2.379,-2.758], "rotationY": 1.521, "size": 0.7, "note": "bk-m strand, rooted on the pot rim"},
+    {"id": "bk-m-3", "model": "ivy/ivy_4", "group": "left", "position": [-3.467,2.379,-2.772], "rotationY": 1.821, "size": 0.55, "note": "bk-m strand, rooted on the pot rim"},
+    {"id": "bk-m-4", "model": "ivy/ivy_5", "group": "left", "position": [-3.471,2.379,-2.784], "rotationY": 2.071, "size": 0.62, "note": "bk-m strand, rooted on the pot rim"},
+    {"id": "bk-t-pot", "model": "ivy/pot_mint", "group": "left", "position": [-3.52,2.65,-2.155], "rotationY": 0, "size": 0.09, "note": "N9 bookcase, top (case B): the pot the ivy grows from; the strands stay in the gap between two fairy-light bulbs"},
+    {"id": "bk-t-1", "model": "ivy/ivy_4", "group": "left", "position": [-3.47,2.74,-2.15], "rotationY": 1.471, "size": 0.55, "note": "bk-t strand, rooted on the pot rim"},
+    {"id": "bk-t-2", "model": "ivy/ivy_7", "group": "left", "position": [-3.47,2.74,-2.155], "rotationY": 1.571, "size": 0.8, "note": "bk-t strand, rooted on the pot rim"},
+    {"id": "bk-t-3", "model": "ivy/ivy_6", "group": "left", "position": [-3.47,2.74,-2.16], "rotationY": 1.671, "size": 0.7, "note": "bk-t strand, rooted on the pot rim"}
+  ],
+  "wallProps": [
+    {
+      "id": "shelf-left",
+      "kind": "shelf",
+      "wall": "left",
+      "origin": [-3.99, 1.9, 0.5],
+      "x": -0.5,
+      "length": 2.3,
+      "depth": 0.575,
+      "top": 2.015,
+      "back": 0.01,
+      "brackets": 3
+    },
+    {"id": "experience-cards", "kind": "cards", "wall": "back", "hotspot": {"contentKey": "experience", "pose": "experience"}},
+    {
+      "id": "whiteboard",
+      "kind": "whiteboard",
+      "wall": "right",
+      "x": -0.3,
+      "y": 1.95,
+      "frame": [1.96, 1.28],
+      "surface": [1.84, 1.16],
+      "off": 0.05,
+      "tray": {
+        "w": 1.6,
+        "d": 0.09,
+        "y": 1.27
+      },
+      "hotspot": {
+        "contentKey": "now",
+        "pose": "whiteboard-screen",
+        "glow": {
+          "kind": "wall",
+          "wall": "right",
+          "rotationY": -1.5708,
+          "position": [3.995, 1.92, -0.3],
+          "size": [1.96, 1.34]
+        }
+      }
+    },
+    {
+      "id": "degrees",
+      "kind": "degrees",
+      "wall": "right",
+      "off": 0.04,
+      "panel": {
+        "x": 2.07,
+        "w": 2.05,
+        "y0": 0.34,
+        "y1": 3.5,
+        "slats": 25,
+        "rail": {
+          "h": 0.06,
+          "proud": 0.03
+        }
+      },
+      "emblem": {
+        "y": 3.15,
+        "d": 0.5
+      },
+      "plate": {
+        "y": 2.657,
+        "w": 1.3,
+        "h": 0.38,
+        "depth": 0.03
+      },
+      "led": {
+        "y": 2.436,
+        "w": 1.1,
+        "h": 0.012
+      },
+      "diplomas": {
+        "xs": [1.595, 2.545],
+        "y": 1.79,
+        "w": 0.8,
+        "h": 0.98,
+        "depth": 0.05,
+        "border": 0.06,
+        "light": {
+          "w": 0.5,
+          "dy": 0.05
+        }
+      },
+      "hotspot": {
+        "contentKey": "education",
+        "pose": "education",
+        "glow": {
+          "kind": "wall",
+          "wall": "right",
+          "rotationY": -1.5708,
+          "position": [3.995, 1.92, 2.07],
+          "size": [2.05, 3.16]
+        }
+      }
+    }
+  ]
+}

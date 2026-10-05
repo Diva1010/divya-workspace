@@ -1,0 +1,681 @@
+{
+  "sections": {
+    "about": {
+      "label": "About"
+    },
+    "experience": {
+      "label": "Experience"
+    },
+    "skills": {
+      "label": "Skills"
+    },
+    "projects": {
+      "label": "Projects"
+    },
+    "contact": {
+      "label": "Contact"
+    },
+    "resume": {
+      "label": "Resume"
+    },
+    "education": {
+      "label": "Education"
+    },
+    "now": {
+      "label": "Now building"
+    },
+    "reading": {
+      "label": "Reading Corner"
+    },
+    "currentRead": {
+      "label": "Currently Reading"
+    },
+    "travel": {
+      "label": "Travel Memories"
+    }
+  },
+  "identity": {
+    "name": "Divya Kaushik",
+    "title": "Software Engineer",
+    "description": "Divya Kaushik, Software Engineer with 9+ years of experience building production web applications in Angular, React and TypeScript, now exploring 3D graphics and spatial computing."
+  },
+  "about": {
+    "greeting": "Hello, I'm Divya.",
+    "headline": "Software Engineer",
+    "paragraphs": [
+      "A software developer with 9+ years of industry experience designing, architecting, and shipping production web applications in Angular, React, and TypeScript, including full ownership of codebase architecture, greenfield technical builds, and mentorship of engineering teams.",
+      "Currently deepening my skills in 3D graphics and spatial computing (Three.js, Unity, AR fundamentals) ahead of graduate study.",
+      "Other than coding and learning new technologies, I love reading books and relaxing in my cozy reading setup."
+    ],
+    "currentLabel": "Currently deepening",
+    "currentChips": [
+      "3D graphics",
+      "Spatial computing",
+      "Three.js",
+      "Unity",
+      "AR fundamentals"
+    ],
+    "photo": "images/about.jpg",
+    "photoAlt": "Portrait of Divya Kaushik"
+  },
+  "companies": [
+    {
+      "id": "perse",
+      "name": "Perse",
+      "logo": "images/logos/perse_logo.svg",
+      "logoSize": [
+        114,
+        50
+      ],
+      "location": "London, UK"
+    },
+    {
+      "id": "playtech",
+      "name": "Playtech",
+      "logo": "images/logos/playtech_logo.png",
+      "logoSize": [
+        240,
+        52
+      ],
+      "location": "London, UK"
+    },
+    {
+      "id": "hcl",
+      "name": "HCL Technologies",
+      "location": "Noida, UP, India",
+      "logo": "images/logos/hcl_logo.png",
+      "logoSize": [
+        288,
+        63
+      ]
+    },
+    {
+      "id": "accenture",
+      "name": "Accenture",
+      "location": "Bangalore, India",
+      "logo": "images/logos/accenture_logo.png",
+      "logoSize": [
+        564,
+        188
+      ]
+    }
+  ],
+  "technologies": [
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "category": "Languages"
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "category": "Languages"
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "category": "Languages"
+    },
+    {
+      "id": "csharp",
+      "name": "C#",
+      "category": "Languages"
+    },
+    {
+      "id": "html5",
+      "name": "HTML5",
+      "category": "Frontend"
+    },
+    {
+      "id": "scss-css3",
+      "name": "SCSS / CSS3",
+      "category": "Frontend"
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "category": "Frontend"
+    },
+    {
+      "id": "redux",
+      "name": "Redux",
+      "category": "Frontend"
+    },
+    {
+      "id": "angular",
+      "name": "Angular",
+      "category": "Frontend",
+      "note": "Versions used: 2–17"
+    },
+    {
+      "id": "tailwind",
+      "name": "Tailwind",
+      "category": "Frontend"
+    },
+    {
+      "id": "jquery",
+      "name": "jQuery",
+      "category": "Frontend"
+    },
+    {
+      "id": "apache-cordova",
+      "name": "Apache Cordova (PhoneGap)",
+      "category": "Frontend"
+    },
+    {
+      "id": "threejs",
+      "name": "Three.js",
+      "category": "3D & Graphics"
+    },
+    {
+      "id": "pixi-js",
+      "name": "Pixi.js",
+      "category": "3D & Graphics"
+    },
+    {
+      "id": "webgl",
+      "name": "WebGL",
+      "category": "3D & Graphics"
+    },
+    {
+      "id": "unity",
+      "name": "Unity",
+      "category": "Game & AR"
+    },
+    {
+      "id": "ar-foundation",
+      "name": "AR Foundation",
+      "category": "Game & AR"
+    },
+    {
+      "id": "mapbox-gl",
+      "name": "Mapbox GL",
+      "category": "Mapping"
+    },
+    {
+      "id": "jest",
+      "name": "Jest",
+      "category": "Testing"
+    },
+    {
+      "id": "chai",
+      "name": "Chai.js",
+      "category": "Testing"
+    },
+    {
+      "id": "tdd",
+      "name": "TDD",
+      "category": "Testing"
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "category": "Backend & Tools"
+    },
+    {
+      "id": "mysql",
+      "name": "MySQL",
+      "category": "Backend & Tools"
+    },
+    {
+      "id": "sharepoint",
+      "name": "SharePoint",
+      "category": "Backend & Tools"
+    },
+    {
+      "id": "git",
+      "name": "Git",
+      "category": "Backend & Tools"
+    },
+    {
+      "id": "bitbucket",
+      "name": "Bitbucket",
+      "category": "Backend & Tools"
+    },
+    {
+      "id": "jenkins",
+      "name": "Jenkins",
+      "category": "Backend & Tools"
+    },
+    {
+      "id": "jira",
+      "name": "JIRA",
+      "category": "Backend & Tools"
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "category": "Backend & Tools"
+    },
+    {
+      "id": "unity-input-system",
+      "name": "Unity Input System",
+      "category": "Game & AR"
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "category": "Data & ML"
+    },
+    {
+      "id": "pytorch",
+      "name": "PyTorch",
+      "category": "Data & ML"
+    },
+    {
+      "id": "webxr",
+      "name": "WebXR Device API",
+      "category": "Game & AR"
+    },
+    {
+      "id": "react-three-fiber",
+      "name": "React Three Fiber",
+      "category": "3D & Graphics"
+    },
+    {
+      "id": "react-three-xr",
+      "name": "@react-three/xr",
+      "category": "3D & Graphics"
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel",
+      "category": "Backend & Tools"
+    },
+    {
+      "id": "struts",
+      "name": "Struts",
+      "category": "Backend & Tools"
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp-perse",
+      "companyId": "perse",
+      "role": "Lead Frontend Developer",
+      "start": "2024-10",
+      "end": "2025-01",
+      "location": "London, UK",
+      "highlights": [
+        "Led a 5-engineer frontend team, owning architectural consistency, code quality, and delivery across multiple Angular applications.",
+        "Designed a comprehensive interactive Mapbox-based geospatial visualization tool from scratch as a greenfield R&D initiative.",
+        "Designed UI/UX in Figma end-to-end and translated designs into production-grade, responsive Angular components.",
+        "Established code review standards and mentored team on Angular architecture, state management and testing patterns.",
+        "Served as primary technical POC between frontend, backend, and product leads, shaping implementation decisions on all systems."
+      ],
+      "techIds": [
+        "angular",
+        "mapbox-gl",
+        "figma",
+        "javascript",
+        "html5",
+        "scss-css3",
+        "typescript",
+        "git"
+      ]
+    },
+    {
+      "id": "exp-playtech",
+      "companyId": "playtech",
+      "role": "Senior Frontend Developer",
+      "start": "2020-02",
+      "end": "2024-09",
+      "location": "London, UK",
+      "highlights": [
+        "Served as Senior Developer and Scrum Master on Playtech's NextGen Team, a greenfield initiative to rebuild the existing application from the ground up in React 18 - partnering directly with Tech Architects on core architectural decisions, from state management patterns to module structure.",
+        "Built high-quality interactive Bingo games using React, TypeScript, and Pixi.js (WebGL rendering), and developed the platform's Jest testing framework from scratch to enable test-driven development across the team, establishing testing patterns that didn't previously exist on the project.",
+        "Mentored junior developers through code review and pairing, focusing on React/TypeScript best practices and conventions for the new architecture."
+      ],
+      "techIds": [
+        "react",
+        "typescript",
+        "pixi-js",
+        "webgl",
+        "jest",
+        "tdd",
+        "javascript",
+        "html5",
+        "scss-css3",
+        "redux",
+        "jira",
+        "git"
+      ]
+    },
+    {
+      "id": "exp-hcl",
+      "companyId": "hcl",
+      "role": "Technical Consultant",
+      "start": "2016-07",
+      "end": "2018-09",
+      "location": "Noida, UP, India",
+      "highlights": [
+        "Project - T-Mobile: Served as Lead Developer and Scrum Master, leading a team of 9 across B2B/B2C platforms and spearheading a greenfield website - building a production-grade Angular application from wireframe through delivery, collaborating directly with the client on requirements and technical approach.",
+        "Project - iGovern Mobility: Built the frontend for PhoneGap applications (Apache Cordova, JavaScript) for a UK law enforcement mobility solution, and contributed to the research team migrating the application to Angular."
+      ],
+      "techIds": [
+        "angular",
+        "javascript",
+        "apache-cordova",
+        "html5",
+        "scss-css3",
+        "typescript",
+        "jira"
+      ]
+    },
+    {
+      "id": "exp-accenture",
+      "companyId": "accenture",
+      "role": "Software Engineering Analyst",
+      "start": "2014-09",
+      "end": "2016-07",
+      "location": "Bangalore, India",
+      "highlights": [
+        "Worked as a full-stack developer across multiple clients and as lead developer on 5 projects, building client portal sites on Java Struts, JavaScript/jQuery, and MySQL; independently handled a Record-to-Report (R2R) project for Microsoft end-to-end, from requirements through delivery.",
+        "Interacted directly with clients to gather and analyze requirements, and trained and onboarded new team members on project context and technical standards.",
+        "Served as key resource for the team's SharePoint site, organizing pages across multiple teams, and built an internal automation tool, 'Inventory Management,' to streamline business processes - recognized as Top Contributor for the initiative."
+      ],
+      "techIds": [
+        "java",
+        "javascript",
+        "jquery",
+        "mysql",
+        "sharepoint",
+        "html5",
+        "scss-css3",
+        "struts"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "royal-run",
+      "title": "Royal Run",
+      "kind": "game",
+      "summary": "Shipped and published an endless runner game on itch.io with public source on GitHub.",
+      "bullets": [
+        "Built in Unity, using Unity's newer Input System package (this is what lets both keyboard and touch controls work through the same underlying code).",
+        "The world is procedurally generated in chunks that scroll toward the player, rather than the player physically running through a static level.",
+        "Controls, obstacle placement, and pickups are kept in sync so that wherever the player can stand, something can actually spawn there - no \"free\" lanes that are always safe by accident.",
+        "Redesigned core movement from timed swipe-nudges to discrete lane-snapping after identifying a gameplay bug that let players drift back into obstacles - improved game feel and fairness.",
+        "Migrated input handling to Unity's new Input System after diagnosing a silent failure in legacy Input under Active Input Handling."
+      ],
+      "links": [
+        {
+          "label": "itch.io",
+          "url": "https://diva1010.itch.io/royal-run"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Diva1010/Royal-Run/"
+        }
+      ],
+      "image": "images/projects/royal-run.webp",
+      "imageSize": [
+        640,
+        640
+      ],
+      "techIds": [
+        "unity",
+        "unity-input-system"
+      ]
+    },
+    {
+      "id": "bitcoin-analysis",
+      "title": "Bitcoin Analysis",
+      "kind": "ml",
+      "summary": "Machine learning project built using Python, PyTorch and other ML libraries.",
+      "bullets": [],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Diva1010/BitcoinAnalysis"
+        }
+      ],
+      "techIds": [
+        "python",
+        "pytorch"
+      ]
+    },
+    {
+      "id": "spatial-measure",
+      "title": "SpatialMeasure",
+      "kind": "web",
+      "summary": "An AR measuring-tape app built with the WebXR Device API, React Three Fiber, and @react-three/xr. Point your phone at a surface, tap to place points, and get live real-world distance readings - with two-point and multi-point polyline modes, unit conversion, temporal smoothing, and world-locked labels.",
+      "bullets": [
+        "Built a browser-based AR measurement tool letting users measure real-world distances/areas with no app install, using WebXR hit-testing on mobile and desktop.",
+        "Architected state management across React Three Fiber's custom renderer and the DOM UI layer, solving a cross-reconciler bug that's a known pain point in R3F/XR apps.",
+        "Deployed and shipped to production on Vercel; tested across Android and iOS Safari WebXR support."
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://spatial-measure.vercel.app/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Diva1010/ar-spatial-measurement-app/"
+        }
+      ],
+      "image": "images/projects/spatial-measure.webp",
+      "imageSize": [
+        640,
+        640
+      ],
+      "techIds": [
+        "webxr",
+        "react-three-fiber",
+        "react-three-xr",
+        "vercel"
+      ]
+    }
+  ],
+  "resume": {
+    "pdf": "resume/Divya_Kaushik_Resume.pdf",
+    "summary": "9+ years experience in software engineering"
+  },
+  "contact": {
+    "emailUser": "divya.kaushik1010",
+    "emailDomain": "gmail.com",
+    "linkedin": "https://www.linkedin.com/in/divyakaushik1010/",
+    "github": "https://github.com/Diva1010"
+  },
+  "now": {
+    "heading": "Now building",
+    "items": [
+      "Software Engineering",
+      "Interactive 3D Experiences",
+      "AR / VR / WebXR"
+    ],
+    "tagline": "Learning. Experimenting. Building."
+  },
+  "education": {
+    "heading": "Wall of Degrees",
+    "tagline": "Learning · Growing · Building",
+    "notes": [
+      "Ship it!",
+      "TODO: nap",
+      "git commit -m 'vibes'",
+      "Learning in public",
+      "Debug with coffee",
+      "Make it pretty"
+    ],
+    "items": [
+      {
+        "degree": "B.Tech in Computer Science",
+        "institution": "UPTU",
+        "location": "Uttar Pradesh, India",
+        "logo": "images/logos/uptu.png",
+        "years": "Sep 2010 - Jun 2014",
+        "status": "Passed with Distinction (Div. I)"
+      },
+      {
+        "degree": "MS in Computer Science",
+        "institution": "Middlesex University",
+        "location": "London, United Kingdom",
+        "logo": "images/logos/middlesex.png",
+        "years": "Sep 2018 - Dec 2019",
+        "status": "Distinction: Grade 1"
+      }
+    ]
+  },
+  "reading": {
+    "top5": [
+      {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "cover": "images/covers/to-kill-a-mockingbird.webp"
+      },
+      {
+        "title": "Vicious",
+        "author": "V. E. Schwab",
+        "cover": "images/covers/vicious.webp"
+      },
+      {
+        "title": "Throne of Glass",
+        "author": "Sarah J. Maas",
+        "cover": "images/covers/throne-of-glass.webp"
+      },
+      {
+        "title": "Crooked Kingdom",
+        "author": "Leigh Bardugo",
+        "cover": "images/covers/crooked-kingdom.webp"
+      },
+      {
+        "title": "Babel",
+        "author": "R. F. Kuang",
+        "cover": "images/covers/babel.webp"
+      }
+    ],
+    "number1": {
+      "title": "Babel",
+      "author": "R. F. Kuang",
+      "reason": "The way she has written the perfect combination of dark academia as well as colonization fiction, talking about colonization so openly and yet keeping the whole audience engaged with the plot as well as holding on to the emotions, was extraordinary. Rebecca F. Kuang is a fantastic writer.",
+      "cover": "images/covers/babel.webp"
+    },
+    "favoriteThisYear": {
+      "year": "2026",
+      "title": "Victorious",
+      "author": "V. E. Schwab",
+      "note": "The finale to the Villains series and an absolute banger. I waited six years for this book and was not disappointed at all.",
+      "cover": "images/covers/victorious.webp"
+    },
+    "favoriteGenre": "Epic Fantasy / Dragons"
+  },
+  "currentRead": {
+    "title": "The Sixth Faction",
+    "author": "Veronica Roth",
+    "note": "Set in the same world as Divergent, it explores what would have happened if Beatrice never chose Dauntless. I'm absolutely loving it and already know it will be another five-star read for me. You can feel the nostalgia of the Divergent world reading it, and I'm transported back to when I first watched Divergent.",
+    "cover": "images/covers/the-sixth-faction.webp"
+  },
+  "travel": {
+    "places": [
+      {
+        "id": "inverness",
+        "name": "Inverness (Fairy Pools)",
+        "region": "Scotland",
+        "note": "Inverness and Scotland have my heart. I absolutely love this place. From the Scottish bagpipes, to the magical lore of this place, to the serenity, Inverness and the Scottish Highlands are an absolute beauty."
+      },
+      {
+        "id": "rann-of-kutch",
+        "name": "Rann of Kutch",
+        "region": "Gujarat, India",
+        "note": "Thanks to the vibrant mix of Gujarati culture, especially during the Rann of Kutch festival, this place transforms into a burst of color on white sand in the morning and a glowing wonder at night (especially during a full moon). It's truly captivating."
+      },
+      {
+        "id": "dubai-desert",
+        "name": "Dubai Desert Safari",
+        "region": "UAE",
+        "note": "Dubai itself is gorgeous, but especially the desert safari at night creates such a magical and cultural atmosphere that you can never forget."
+      },
+      {
+        "id": "big-sur",
+        "name": "Big Sur and Highway 1",
+        "region": "California, USA",
+        "note": "Big Sur and the whole Highway 1 trail are breathtaking. I have never seen such blue water. The tall green cliffs and that incredible blue water: it's definitely a not-to-miss treat."
+      },
+      {
+        "id": "snowdonia",
+        "name": "Snowdonia",
+        "region": "Wales",
+        "note": "Another must-visit place in the UK, with serene mountains and stunning cliffside views along ocean coastlines."
+      }
+    ],
+    "photos": [
+      {
+        "path": "images/travel/inverness-1.webp",
+        "thumb": "images/travel/inverness-1-thumb.webp",
+        "alt": "Inverness (Fairy Pools): Fairy Pools on Isle of Skye.",
+        "caption": "Fairy Pools, Isle of Skye",
+        "place": "inverness",
+        "width": 1472,
+        "height": 983,
+        "credit": {
+          "author": "Wojtek Szkutnik",
+          "license": "CC BY 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:The_Fairy_Pools_(228835567).jpeg"
+        }
+      },
+      {
+        "path": "images/travel/rann-of-kutch-1.webp",
+        "thumb": "images/travel/rann-of-kutch-1-thumb.webp",
+        "alt": "This is a road under construction at Dholavira passing through the salt desert of Rann of Kutch.",
+        "caption": "Rann of Kutch",
+        "place": "rann-of-kutch",
+        "width": 1600,
+        "height": 900,
+        "credit": {
+          "author": "Prof Ranga Sai",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:White_salt_desert_at_Rann_of_Kutch.jpg"
+        }
+      },
+      {
+        "path": "images/travel/dubai-desert-1.webp",
+        "thumb": "images/travel/dubai-desert-1-thumb.webp",
+        "alt": "You have to love the remoteness of the desert in Dubai.",
+        "caption": "Dubai Desert Safari",
+        "place": "dubai-desert",
+        "width": 1600,
+        "height": 1009,
+        "credit": {
+          "author": "JSPhotography2016",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Scattered_Trees_in_the_Desert.jpg"
+        }
+      },
+      {
+        "path": "images/travel/big-sur-1.webp",
+        "thumb": "images/travel/big-sur-1-thumb.webp",
+        "alt": "View of McWay Cove, with the McWay Falls, in CA, USA.",
+        "caption": "Big Sur and Highway 1",
+        "place": "big-sur",
+        "width": 1146,
+        "height": 761,
+        "credit": {
+          "author": "Laurens R. Krol",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:2016-06-03_USA,_CA,_McWay_Cove_DSC_8734_DxO_1.jpg"
+        }
+      },
+      {
+        "path": "images/travel/snowdonia-1.webp",
+        "thumb": "images/travel/snowdonia-1-thumb.webp",
+        "alt": "View from close to the peak of Yr Wyddfa, showing Pyg Track (above) and Miners Track (below) on the left, above Glaslyn and Llyn Llydaw.",
+        "caption": "Snowdonia",
+        "place": "snowdonia",
+        "width": 1600,
+        "height": 624,
+        "credit": {
+          "author": "Julian Herzog",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Glaslyn_and_Paths_up_Yr_Wyddfa_2019_01.jpg"
+        }
+      }
+    ]
+  }
+}
