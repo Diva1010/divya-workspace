@@ -40,6 +40,8 @@ export interface FocusState {
   poses: Record<string, Pose>
   resetNonce: number
   sceneFailed: boolean
+  eduCard: number
+  eduCards: boolean
 }
 
 const norm = (v: V3): V3 => {
@@ -76,6 +78,8 @@ let state: FocusState = {
   poses: seedPoses(),
   resetNonce: 0,
   sceneFailed: false,
+  eduCard: 0,
+  eduCards: false,
 }
 
 const listeners = new Set<() => void>()
@@ -113,7 +117,7 @@ export function focus(key: ContentKey, poseId?: string) {
     opener = el instanceof HTMLElement && el !== document.body ? el : null
     originKey = key
   }
-  set({ active: key, activePose: pose, detail: null, detailFrom: null, screenUi: false, phase: pose && state.poses[pose] ? 'gliding' : 'open' })
+  set({ active: key, activePose: pose, detail: null, detailFrom: null, screenUi: false, eduCard: 0, eduCards: false, phase: pose && state.poses[pose] ? 'gliding' : 'open' })
 }
 export const back = () => {
   if (state.active === null) return
@@ -125,10 +129,10 @@ export const back = () => {
     set({ detail: null, detailFrom: null, phase: 'screen' })
     return
   }
-  set({ active: null, activePose: null, detail: null, detailFrom: null, screenUi: false, phase: 'idle' })
+  set({ active: null, activePose: null, detail: null, detailFrom: null, screenUi: false, phase: 'idle', eduCard: 0, eduCards: false })
 }
 export const reset = () =>
-  set({ active: null, activePose: null, detail: null, detailFrom: null, screenUi: false, phase: 'idle', resetNonce: state.resetNonce + 1 })
+  set({ active: null, activePose: null, detail: null, detailFrom: null, screenUi: false, phase: 'idle', resetNonce: state.resetNonce + 1, eduCard: 0, eduCards: false })
 export const settle = () => {
   if (state.active !== null && state.phase === 'gliding') set({ phase: state.screenUi ? 'screen' : 'open' })
 }
@@ -137,7 +141,9 @@ export const openDetail = (detail: Detail) => {
   if (state.phase !== 'screen' && !(state.phase === 'open' && state.active !== null)) return
   set({ detail, detailFrom: state.detail, phase: 'open' })
 }
-export const failScene = () => set({ sceneFailed: true, active: null, activePose: null, detail: null, detailFrom: null, screenUi: false, phase: 'idle' })
+export const failScene = () => set({ sceneFailed: true, active: null, activePose: null, detail: null, detailFrom: null, screenUi: false, phase: 'idle', eduCard: 0, eduCards: false })
+export const setEduView = (cards: boolean) => set({ eduCards: cards, eduCard: cards ? state.eduCard : 0 })
+export const stepEduCard = (delta: number, count: number) => set({ eduCard: Math.min(Math.max(state.eduCard + delta, 0), count - 1) })
 
 export const useScreenMounted = (kind: string) =>
   useFocus((s) => s.screenUi && (s.phase === 'screen' || s.phase === 'open') && s.active === kind)

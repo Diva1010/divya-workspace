@@ -410,17 +410,23 @@ export function DegreeWall() {
   const disc = useWallMat(DISC)
   const { panel: p, emblem: em, plate: pl, diplomas: dp } = dw
   const onWall = () => getState().phase === 'screen' && getState().active === dw.hotspot.contentKey
+  const count = Math.min(content.education.items.length, dp.xs.length)
+  const top = p.y1 + HIT_PAD
+  const bottom = p.y0 - HIT_PAD
+  const onDiploma = (e: Parameters<typeof handlers.onPointerUp>[0]) => {
+    const q = e.object.worldToLocal(e.point.clone())
+    const x = p.x + q.x
+    const y = (top + bottom) / 2 + q.y
+    return dp.xs.slice(0, count).some((cx) => Math.abs(x - cx) <= dp.w / 2 && Math.abs(y - dp.y) <= dp.h / 2)
+  }
   const inside = {
     ...handlers,
     onPointerUp: (e: Parameters<typeof handlers.onPointerUp>[0]) => {
       handlers.onPointerUp(e)
-      if (onWall()) markInside()
+      if (onWall() && onDiploma(e)) markInside()
     },
   }
-  const top = p.y1 + HIT_PAD
-  const bottom = p.y0 - HIT_PAD
   const depth = dw.off + dp.depth + HIT_PAD
-  const count = Math.min(content.education.items.length, dp.xs.length)
   useFrame((_, dt) => stepLight(Math.min(dt, 0.05)))
   return (
     <group position={[0, 0, T / 2]}>

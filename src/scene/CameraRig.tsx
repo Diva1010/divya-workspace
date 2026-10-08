@@ -2,8 +2,9 @@ import { useEffect, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import type { OrbitControls as OrbitControlsImpl } from 'three/examples/jsm/controls/OrbitControls.js'
-import { chooseScreen, getState, settle, useFocus, type Pose } from '../store/focus'
+import { chooseScreen, getState, setEduView, settle, useFocus, type Pose } from '../store/focus'
 import { room } from '../zones/zone'
+import { CARD_GLIDE_S, educationFraming } from './educationFocus'
 import { fitDistance, fovForAspect, SIDE_SHEET_MAX_PX } from './poseFit'
 import { BAND_GAP, NAME_H, SIGN_W, SIGN_X, SIGN_Y, TITLE_H } from './NeonSign'
 
@@ -88,6 +89,7 @@ export function CameraRig() {
   const controls = useThree((s) => s.controls) as OrbitControlsImpl | null
   const active = useFocus((s) => s.active)
   const nonce = useFocus((s) => s.resetNonce)
+  const eduCard = useFocus((s) => s.eduCard)
   const gl = useThree((s) => s.gl)
   const home = useRef({ pos: HOME.pos.clone(), tgt: HOME.tgt.clone() })
   const glide = useRef<Glide | null>(null)
@@ -160,7 +162,9 @@ export function CameraRig() {
         chooseScreen(true, poseId)
       }
       if (!saved.current) saved.current = { p: camera.position.clone(), t: controls.target.clone() }
-      const resolved = resolvePose(pose, aspect, size.width)
+      const edu = pose.wallView ? educationFraming(pose, gl.domElement.getBoundingClientRect(), 0) : null
+      if (pose.wallView) setEduView(edu?.mode === 'cards')
+      const resolved = edu ?? resolvePose(pose, aspect, size.width)
       const pos = resolved.pos
       const target = resolved.target
       controls.minDistance = Math.min(room.camera.orbit.minDistance, pos.distanceTo(target) * 0.98)
@@ -172,6 +176,27 @@ export function CameraRig() {
       flyTo(home.current.pos, home.current.tgt, room.camera.backSeconds)
     }
   }, [active, controls])
+
+  useEffect(() => {
+    const s = getState()
+    if (!controls || s.active !== 'education' || s.phase === 'idle') return
+    const pose = s.activePose ? s.poses[s.activePose] : undefined
+    if (!pose?.wallView) return
+    const edu = educationFraming(pose, gl.domElement.getBoundingClientRect(), s.eduCard)
+    if (edu) flyTo(edu.pos, edu.target, CARD_GLIDE_S)
+  }, [eduCard, controls])
+
+  useEffect(() => {
+    const s = getState()
+    if (!controls || s.active !== 'education' || s.phase === 'idle') return
+    const pose = s.activePose ? s.poses[s.activePose] : undefined
+    if (!pose?.wallView) return
+    const edu = educationFraming(pose, gl.domElement.getBoundingClientRect(), s.eduCard)
+    if (!edu && !s.eduCards) return
+    setEduView(edu?.mode === 'cards')
+    const r = edu ?? resolvePose(pose, size.width / Math.max(size.height, 1), size.width)
+    flyTo(r.pos, r.target, CARD_GLIDE_S)
+  }, [size, controls])
 
   useEffect(() => {
     if (!controls || nonce === prevNonce.current) return

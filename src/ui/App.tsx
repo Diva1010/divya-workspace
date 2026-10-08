@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, type RefObject } from 'react'
 import { PopupHost } from './popups/PopupHost'
 import { Classic } from './Classic'
+import { FocusControls } from './FocusControls'
 import { ScreenBack } from './ScreenBack'
 import { ErrorBoundary } from './ErrorBoundary'
 import { Icon, SectionIcon } from './Icon'
@@ -203,6 +204,7 @@ export default function App() {
 
   return (
     <div id="stage" ref={stage} className={`is-${time}`} data-nav={fit.mode}>
+      <FocusControls />
       <div className="sky day" />
       <div className="sky dusk" />
       <div className="sky night" />

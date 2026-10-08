@@ -4,7 +4,7 @@ import { back, getState, useFocus } from '../store/focus'
 import { restoreFocus } from './focusReturn'
 import { insideCount } from '../scene/wallView'
 
-const INSIDE = '.scr, .menu, .bar, .scrim, .popup'
+const INSIDE = '.scr, .menu, .bar, .scrim, .popup, .focus-ui'
 const isOutside = (t: EventTarget | null) => t instanceof Element && !t.closest(INSIDE)
 
 export function ScreenBack() {
@@ -12,7 +12,7 @@ export function ScreenBack() {
   const show = phase === 'screen'
   const prev = useRef(phase)
   useEffect(() => {
-    if (prev.current === 'screen' && phase === 'idle') {
+    if ((prev.current === 'screen' || prev.current === 'gliding') && phase === 'idle') {
       const a = document.activeElement
       if (!a || a === document.body || a.closest('.scr')) restoreFocus()
     }
@@ -42,6 +42,8 @@ export function ScreenBack() {
       if (e.key !== 'Tab') return
       const items = [...document.querySelectorAll<HTMLElement>('.scr [data-screen-item]')]
       if (!items.length) return
+      const close = document.querySelector<HTMLElement>('.focus-close button')
+      if (close) items.unshift(close)
       const at = items.indexOf(document.activeElement as HTMLElement)
       if (at === -1) { e.preventDefault(); items[0].focus({ preventScroll: true }); return }
       const next = e.shiftKey ? at - 1 : at + 1
