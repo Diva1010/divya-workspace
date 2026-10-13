@@ -21,7 +21,7 @@ const DUSTER_FELT = '#5B4F6B'
 const MARKER_SCALE = 1.4
 const MARKER_Z = 0.068
 const DUSTER_Z = 0.0725
-const HIT_PAD = 0.04
+const HIT_PAD = 0
 
 function useBoardMaterial() {
   const { tex, cv } = useMemo(() => {

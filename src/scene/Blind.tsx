@@ -4,6 +4,7 @@ import * as THREE from 'three'
 import { BLIND, BLIND_CX, BLIND_W, BLIND_Z, blindPose, railsGeometry, slatGeometry, slatMatrices, smooth } from './blindDesign'
 import { makeClickHandlers } from './clickRule'
 import { hitMaterial } from './hitProxy'
+import { hoverGoal } from './hotspotHover'
 import { runtime, wallFade } from './runtime'
 import { getState, toggleBlind } from '../store/focus'
 
@@ -40,7 +41,7 @@ export function Blind() {
       if (old !== railsGeo) old.dispose()
     }
     const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
-    const goal = hover.current ? 1 : 0
+    const goal = hoverGoal('blind', hover.current) ? 1 : 0
     runtime.blindHover = reduced ? goal : runtime.blindHover + (goal - runtime.blindHover) * Math.min(1, Math.min(dtRaw, 0.05) * 10)
   })
   const usable = () => getState().phase !== 'screen' && runtime.wallOp.back >= 0.5

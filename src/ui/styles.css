@@ -728,3 +728,14 @@ button.close-btn:hover { background: transparent; }
 .edu-pager span { min-width: 48px; text-align: center; font-size: 14px; font-weight: 700; color: var(--ink); }
 @keyframes focus-in { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .focus-close, .edu-pager { animation: none; } }
+
+.spark-tip, .spark-hint {
+  position: fixed; left: 0; top: 0; z-index: 6; pointer-events: none; box-sizing: border-box;
+  padding: 5px 11px; border-radius: var(--r-pill); border: 1px solid var(--line);
+  background: var(--panel-strong); color: var(--ink); font-size: 13px; font-weight: 600; line-height: 1.3; white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(20,10,60,.25); opacity: 0; transition: opacity var(--dur-2) ease;
+}
+.spark-tip[data-on="true"] { opacity: 1; }
+.spark-hint { left: 50%; top: auto; transform: translateX(-50%); transition-duration: .5s; }
+.spark-hint[data-on="true"] { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .spark-tip, .spark-hint { transition: none; } }

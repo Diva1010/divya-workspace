@@ -162,7 +162,7 @@ function Standee({ p }: { p: CodeProp }) {
   )
 }
 
-const PAD = 0.04
+const PAD = 0
 
 function hitBox(p: CodeProp): { c: V3; s: V3 } {
   const [w, d, h] = p.size

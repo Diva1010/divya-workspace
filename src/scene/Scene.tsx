@@ -17,6 +17,7 @@ import { THEMES } from './themes'
 import { useFocus } from '../store/focus'
 import { BLOOM, BLOOM_ACTIVE, DPR_MAX } from './lightingPresets'
 import { DebugReadout } from './DebugReadout'
+import { Markers } from './SparkleMarkers'
 import { AmbientClock, AmbientGlows } from './AmbientFx'
 import { room } from '../zones/zone'
 
@@ -73,6 +74,7 @@ export function Scene() {
       />
       <CameraRig />
       <DebugReadout />
+      <Markers />
       {BLOOM_ACTIVE && (
         <Suspense fallback={null}>
           <BloomFx />

@@ -1,10 +1,13 @@
 import * as THREE from 'three'
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
-import { GOLD, LIGHT_OAK, MAT_CREAM, WALNUT, fitArt, makeFrame, paint, type Frame } from './frame'
+import { GOLD, LIGHT_OAK, MAT_CREAM, WALNUT, makeFrame, paint, type Frame } from './frame'
 import { SHELF_ROW, layoutRow, makeBook } from './bookGen'
-import { POSTER_TEX } from './posterDesign'
+import { BANNER_BAND_PX, BANNER_TEX } from './posterDesign'
+import { RIBBON, buildRibbon, ribbonEnvelope } from './bannerShape'
 import { CASE } from './bookcaseLayout'
 import { artUV, type ArtId } from './wallArt'
+
+const BANNER_BAND_PX_RATIO = BANNER_BAND_PX / BANNER_TEX[1]
 
 
 const WALL_X = -3.985
@@ -12,8 +15,12 @@ const WALL_X = -3.985
 export interface ShelfData { x: number; length: number; depth: number; top: number; back: number }
 const shelfWorld = (s: ShelfData) => ({ zMin: -(s.x + s.length / 2), zMax: -(s.x - s.length / 2), xBack: -4 + s.back, xFront: -4 + s.back + s.depth, top: s.top })
 
-const STANDING_FRAME = { z: 1.075, backX: -3.74, width: 0.5, height: 0.62, border: 0.028, depth: 0.03, minMat: 0.03 }
-const POSTER_ASPECT = POSTER_TEX[0] / POSTER_TEX[1]
+export const STANDING_FRAME = { z: 1.1, backX: -3.74, width: 0.46, height: 0.72, border: 0.034, depth: 0.035, minMat: 0.03 }
+// Ribbon across the top of the standing frame (shape and size tunables live in bannerShape.ts).
+export const BANNER = { overTop: 0.03 }
+export const BANNER_WIDTH = ribbonEnvelope(STANDING_FRAME.width)
+// The print fills the opening below the ribbon with this margin on each side (share of the free width and height).
+const PRINT_MARGIN = 0.08
 
 interface GalleryItem { id: string; art: ArtId; z: number; y: number; w: number; h: number; border: number; depth: number; color: string }
 const GALLERY: GalleryItem[] = [
@@ -79,10 +86,24 @@ export function coverRect(id: ArtId, w: number, h: number): [number, number, num
   return [cu - ((u1 - u0) / 2) * kx, cv - ((v1 - v0) / 2) * ky, cu + ((u1 - u0) / 2) * kx, cv + ((v1 - v0) / 2) * ky]
 }
 
+
 export function posterQuad(shelfTop: number): THREE.BufferGeometry {
-  const f = makeFrame({ width: STANDING_FRAME.width, height: STANDING_FRAME.height, border: STANDING_FRAME.border, depth: STANDING_FRAME.depth, color: LIGHT_OAK, matColor: MAT_CREAM, standing: true })
-  const art = fitArt(f.opening, POSTER_ASPECT, STANDING_FRAME.minMat)
-  return quad(art.w, art.h, f.artMatrix, standingMatrix(shelfTop))
+  const S = STANDING_FRAME
+  const f = makeFrame({ width: S.width, height: S.height, border: S.border, depth: S.depth, color: LIGHT_OAK, matColor: MAT_CREAM, standing: true })
+  const bandBottom = S.height / 2 + BANNER.overTop - RIBBON.height
+  const bottom = -f.opening.h / 2
+  const freeH = Math.min(bandBottom, f.opening.h / 2) - bottom
+  const k = 1 - 2 * PRINT_MARGIN
+  const matrix = f.artMatrix.clone().multiply(new THREE.Matrix4().makeTranslation(0, bottom + freeH / 2, 0))
+  return quad(f.opening.w * k, freeH * k, matrix, standingMatrix(shelfTop))
+}
+
+// One mesh, one texture: the band uses the top of the banner canvas, the tails and folds the strip below it.
+export function bannerGeometry(shelfTop: number): THREE.BufferGeometry {
+  const S = STANDING_FRAME
+  const f = makeFrame({ width: S.width, height: S.height, border: S.border, depth: S.depth, color: LIGHT_OAK, matColor: MAT_CREAM, standing: true })
+  const frameToWorld = standingMatrix(shelfTop).multiply(f.artMatrix).multiply(new THREE.Matrix4().makeTranslation(0, 0, -(S.depth * 0.1 + 0.001)))
+  return buildRibbon(S.width, S.height, S.depth, 1 - BANNER_BAND_PX_RATIO).applyMatrix4(frameToWorld)
 }
 
 export interface GlobeParts {

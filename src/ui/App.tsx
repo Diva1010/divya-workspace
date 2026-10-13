@@ -10,6 +10,8 @@ import { MENU } from './menu'
 import { useNavFit, type NavMode } from './useNavFit'
 import { content, educationStatus, getCurrentRead, getReading, getTravel, siteTitle } from '../content'
 import { Scene } from '../scene/Scene'
+import { setSparkles, useMarkerUi } from '../scene/markerState'
+import { MarkerOverlay } from './MarkerOverlay'
 import { THEMES, THEME_SWATCH, type ThemeName } from '../scene/themes'
 import { back, failScene, focus, reset, setTheme, setTime, toggleBlind, toggleFloorLamp, toggleLamp, toggleRoof, toggleSideLamp, useFocus } from '../store/focus'
 import type { ContentKey, TimeOfDay } from '../zones/types'
@@ -53,23 +55,23 @@ function MenuBar({ inert, mode, navRef }: { inert: boolean; mode: NavMode; navRe
         <span>{content.sections.now.label || 'now'}</span>
       </button>
       {extras.map((x, i) => (
-        <button key={x.key} type="button" className="menu-now menu-extra" style={{ '--i': i + 1 } as React.CSSProperties} aria-label={x.aria} inert={inert} onClick={() => focus(x.key, x.pose)}>
+        <button key={x.key} type="button" className="menu-now menu-extra" style={{ '--i': i + 1 } as React.CSSProperties} aria-label={x.aria} data-marker={x.key} inert={inert} onClick={() => focus(x.key, x.pose)}>
           <SectionIcon section={x.key} />
           <span>{content.sections[x.key].label}</span>
         </button>
       ))}
       {}
-      <button type="button" className="menu-now menu-extra" style={{ '--i': extras.length + 1 } as React.CSSProperties} aria-label={floorLampOn ? 'Turn the floor lamp off' : 'Turn the floor lamp on'} aria-pressed={floorLampOn} inert={inert} onClick={toggleFloorLamp}>
+      <button type="button" className="menu-now menu-extra" style={{ '--i': extras.length + 1 } as React.CSSProperties} aria-label={floorLampOn ? 'Turn the floor lamp off' : 'Turn the floor lamp on'} aria-pressed={floorLampOn} data-marker="floorLamp" inert={inert} onClick={toggleFloorLamp}>
         <Icon name="lamp" />
         <span>Floor lamp</span>
       </button>
       {}
-      <button type="button" className="menu-now menu-extra" style={{ '--i': extras.length + 2 } as React.CSSProperties} aria-label={sideLampOn ? 'Turn the desk-side lamp off' : 'Turn the desk-side lamp on'} aria-pressed={sideLampOn} inert={inert} onClick={toggleSideLamp}>
+      <button type="button" className="menu-now menu-extra" style={{ '--i': extras.length + 2 } as React.CSSProperties} aria-label={sideLampOn ? 'Turn the desk-side lamp off' : 'Turn the desk-side lamp on'} aria-pressed={sideLampOn} data-marker="sideLamp" inert={inert} onClick={toggleSideLamp}>
         <Icon name="lamp" />
         <span>Desk-side lamp</span>
       </button>
       {}
-      <button type="button" className="menu-now menu-extra" style={{ '--i': extras.length + 3 } as React.CSSProperties} aria-label={blindClosed ? 'Open the window blind' : 'Close the window blind'} aria-pressed={blindClosed} inert={inert} onClick={toggleBlind}>
+      <button type="button" className="menu-now menu-extra" style={{ '--i': extras.length + 3 } as React.CSSProperties} aria-label={blindClosed ? 'Open the window blind' : 'Close the window blind'} aria-pressed={blindClosed} data-marker="blind" inert={inert} onClick={toggleBlind}>
         <Icon name="sun" />
         <span>Window blind</span>
       </button>
@@ -108,6 +110,7 @@ function Controls({ inert }: { inert: boolean }) {
   const theme = useFocus((s) => s.theme)
   const roof = useFocus((s) => s.roof)
   const lampOn = useFocus((s) => s.lampOn)
+  const sparkles = useMarkerUi((s) => s.sparkles)
   return (
     <div className="bar" role="toolbar" aria-label="Scene controls" inert={inert}>
       <div className="bar-main">
@@ -127,11 +130,14 @@ function Controls({ inert }: { inert: boolean }) {
         </div>
       </div>
       <div className="grp acts" role="group" aria-label="Scene options">
-        <button type="button" className="ib tog" aria-label="Lamp" title="Lamp" aria-pressed={lampOn} onClick={toggleLamp}>
+        <button type="button" className="ib tog" aria-label="Lamp" title="Lamp" aria-pressed={lampOn} data-marker="lamp" onClick={toggleLamp}>
           <Icon name="lamp" />
         </button>
         <button type="button" className="ib tog" aria-label="Roof" title="Roof" aria-pressed={roof} onClick={toggleRoof}>
           <Icon name="home" />
+        </button>
+        <button type="button" className="ib tog" aria-label={sparkles ? 'Hide sparkles' : 'Show sparkles'} title={sparkles ? 'Hide sparkles' : 'Show sparkles'} aria-pressed={sparkles} onClick={() => setSparkles(!sparkles)}>
+          <Icon name="sparkles" />
         </button>
         <button type="button" className="ib" aria-label="Reset view" title="Reset view" onClick={reset}>
           <Icon name="rotateCcw" />
@@ -146,6 +152,7 @@ function WallText() {
   const items = now.items.filter((i) => i.trim())
   return (
     <section className="sr-only" aria-label="On the walls">
+      <p>Framed print: Modern Family, Favorite Show of All Time</p>
       {identity.name.trim() && <p>{identity.name}</p>}
       {identity.title.trim() && <p>{identity.title}</p>}
       {(now.heading.trim() || items.length > 0 || now.tagline.trim()) && (
@@ -220,6 +227,7 @@ export default function App() {
       <WallText />
       <MenuBar inert={popupOpen} mode={fit.mode} navRef={navEl} />
       <Controls inert={popupOpen} />
+      <MarkerOverlay />
       <ScreenBack />
       <PopupHost />
     </div>

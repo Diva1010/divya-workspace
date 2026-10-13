@@ -5,6 +5,7 @@ import * as THREE from 'three'
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
 import { atlasTexture, prewarmAtlases } from './atlas'
 import { makeClickHandlers } from './clickRule'
+import { addHover, clearHover, hoverGoal, removeHover } from './hotspotHover'
 import { Books } from './Books'
 import { Bookcase } from './Bookcase'
 import { RightLamp } from './RightLamp'
@@ -166,11 +167,12 @@ function LampProp({ prop, bodyMaterial, img }: { prop: Prop; bodyMaterial: THREE
 
   const hover = useRef(false)
   const hv = useRef(0)
+  useEffect(() => () => clearHover('desk-lamp'), [])
   useFrame((_, dtRaw) => {
     const e = runtime.env
     const L = runtime.lampLevel
     headMat.emissiveIntensity = e.shade * L * LAMP_SHADE_GLOW
-    hv.current += ((hover.current ? 1 : 0) - hv.current) * Math.min(1, Math.min(dtRaw, 0.05) * 10)
+    hv.current += ((hoverGoal('desk-lamp', hover.current) ? 1 : 0) - hv.current) * Math.min(1, Math.min(dtRaw, 0.05) * 10)
     ring.opacity = hv.current * 0.75
   })
 
@@ -185,10 +187,12 @@ function LampProp({ prop, bodyMaterial, img }: { prop: Prop; bodyMaterial: THREE
         if (e.nativeEvent.pointerType !== 'mouse') return
         e.stopPropagation()
         hover.current = true
+        addHover('desk-lamp')
         gl.domElement.style.cursor = 'pointer'
       }}
       onPointerOut={() => {
         hover.current = false
+        removeHover('desk-lamp')
         gl.domElement.style.cursor = ''
       }}
     >
@@ -229,7 +233,7 @@ function FloorLampProp({ prop, bodyMaterial, img }: { prop: Prop; bodyMaterial: 
     const e = runtime.env
     headMat.emissiveIntensity = bloomBoost(e.shade * runtime.floorLampLevel * LAMP_SHADE_GLOW, BLOOM.boostBeads)
     const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
-    const goal = hover.current ? 1 : 0
+    const goal = hoverGoal('floor-lamp', hover.current) ? 1 : 0
     runtime.floorLampHover = reduced ? goal : runtime.floorLampHover + (goal - runtime.floorLampHover) * Math.min(1, Math.min(dtRaw, 0.05) * 10)
   })
   const click = useMemo(() => makeClickHandlers(toggleFloorLamp, () => getState().phase !== 'screen'), [])

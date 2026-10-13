@@ -24,7 +24,7 @@ import { content } from '../content'
 import { degreeWall } from '../zones/zone'
 import { getState } from '../store/focus'
 
-const HIT_PAD = 0.04
+const HIT_PAD = 0
 const LIFT = 0.002
 const SEG = { curve: 3, bevel: 2 }
 const WHITE = new THREE.Color(0xffffff)

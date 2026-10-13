@@ -5,6 +5,7 @@ import * as THREE from 'three'
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
 import { makeClickHandlers } from './clickRule'
 import { hitMaterial } from './hitProxy'
+import { hoverGoal } from './hotspotHover'
 import { BLOOM, BLOOM_ACTIVE, bloomBoost } from './lightingPresets'
 import { runtime } from './runtime'
 import { getState, toggleSideLamp } from '../store/focus'
@@ -96,7 +97,7 @@ export function RightLamp() {
   useFrame((_, dtRaw) => {
     headMat.emissiveIntensity = bloomBoost(runtime.env.rLampGlow * runtime.sideLampLevel, BLOOM.boostBeads)
     const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
-    const goal = hover.current ? 1 : 0
+    const goal = hoverGoal('side-lamp', hover.current) ? 1 : 0
     runtime.sideLampHover = reduced ? goal : runtime.sideLampHover + (goal - runtime.sideLampHover) * Math.min(1, Math.min(dtRaw, 0.05) * 10)
   })
   const click = useMemo(() => makeClickHandlers(toggleSideLamp, () => getState().phase !== 'screen'), [])
